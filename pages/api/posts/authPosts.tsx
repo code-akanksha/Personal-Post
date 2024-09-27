@@ -21,12 +21,13 @@ export default async function handler(
                     email: session.user?.email,
                 },
                 include:{
-                    Post:{
+                    post:{
                         orderBy: {
                             createdAt: "desc",
                         },
                         include:{
                             Comment: true,
+                    
                         },
                     },
                 },

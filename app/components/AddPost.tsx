@@ -17,11 +17,10 @@ export default function CreatePost() {
       return axios.post("/api/posts/addPost", {title: newPostTitle});
     },
     onSuccess: () => {
-        // Invalidate the 'posts' query so it fetches fresh data
-        queryClient.invalidateQueries({ queryKey: ['posts'] });
         toast.dismiss();
         toast.success("Post has been made 🔥", { id: toastPostID })
-
+         // Invalidate the 'posts' query so it fetches fresh data
+        queryClient.invalidateQueries({ queryKey: ['posts'] });
         setTitle("")
         setIsDisabled(false)
         console.log('Post created successfully!');
